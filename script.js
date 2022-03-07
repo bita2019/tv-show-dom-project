@@ -90,5 +90,13 @@ function onSearchKeyUp(event) {
   // searchCount.innerText = countString;
   // makePageForEpisodes(filteredEpisodes);
 }
+function sendRequest(showId) {
+  const requestUrl = `https://api.tvmaze.com/shows/${showId}/episodes`;
+  return fetch(requestUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+}
 
 window.onload = setup;

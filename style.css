@@ -1,5 +1,6 @@
 #root {
-  color: rgb(34, 4, 4);
+  color: rgb(238, 229, 229);
+  background-color: black;
   width: 100vw;
   height: 100vh;
   padding: 10px;
@@ -13,16 +14,16 @@
   flex-wrap: wrap;
 }
 .episode {
-  width: 20%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 18px;
-  border: solid 1px navy;
-  box-shadow: 10px 5px 10px rgb(83, 66, 54);
+
+  box-shadow: 3px 3px 10px rgb(92, 79, 70);
   border: 5px rgb(54, 3, 61);
   padding: 5px;
-  margin: 20px;
+  margin: 25px;
 }
 /* background-color: #fff;
   border: none;
