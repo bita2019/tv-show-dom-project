@@ -4,11 +4,9 @@ const showSelect = document.getElementById("select-show");
 const selectMenu = document.getElementById("select-input");
 const allShowsContainer = document.getElementById("all-shows");
 const episodesSelect = document.getElementById("select-episode");
+
 showSelect.addEventListener("change", getLiveEpisodes("", showSelect.value));
-episodesSelect.addEventListener(
-  "change",
-  getLiveEpisodes("", episodesSelect.value)
-);
+
 console.log(allShowsContainer);
 
 let allEpisodes = [];
@@ -27,14 +25,21 @@ function showsSelectMenue() {
     showSelect.appendChild(showOption);
   });
 }
-function episodesSelectMenue() {
-  allEpisodes.map((show) => {
-    const episodesOption = document.createElement("option");
-    episodesOption.innerText = show.name;
-    episodesOption.value = show.id;
-    showSelect.appendChild(episodesOption);
-  });
+function episodesSelectMenue(episodeList) {
+  console.log(
+    episodeList.forEach((episode) => {
+      const episodeString = `${formatSeriesAndEpisodee(
+        episode.season,
+        episode.number
+      )} - ${episode.name}`;
+
+      episodesSelect.innerText = episodeString;
+      episodesSelect.value = "XY";
+      episodesSelect.appendChild(listEpisodeSelect);
+    })
+  );
 }
+
 //You can edit ALL of the code here
 function getLiveEpisodes(searchValue = "", showID = showSelect.value) {
   let newVar = fetch(`https://api.tvmaze.com/shows/${showID}/episodes`)
@@ -65,6 +70,7 @@ function setup() {
   searchBox.addEventListener("keyup", onSearchKeyUp);
   showsSelectMenue();
   showSelect.addEventListener("click", getLiveEpisodes);
+  episodesSelectMenue(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
