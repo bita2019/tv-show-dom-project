@@ -6,15 +6,20 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
-  <body>
+  <body id="body">
     <div id="root">
+      <div id="all-shows"></div>
+      <select id="select-show"></select>
+      <select id="select-episode"></select>
       <input id="search-box" type="text" placeholder="Search" width="40px" />
       <div id="episode-list"></div>
       <div id="search-count"></div>
       <div>All this stuff came from TVMaze.com</div>
+      <img id="img">
     </div>
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
+    <script src="shows.js"></script>
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>

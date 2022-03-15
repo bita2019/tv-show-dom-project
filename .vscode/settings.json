@@ -1,5 +1,6 @@
 {
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5502,
+  "git.ignoreLimitWarning": true
   // Whether git is enabled.
   // git.enabled: false
 }

@@ -1,4 +1,4 @@
-#root {
+#body {
   color: rgb(238, 229, 229);
   background-color: black;
   width: 100vw;
@@ -7,19 +7,38 @@
   display: flex;
   flex-direction: column;
 }
+.selectshow {
+  width: 100%;
+  padding: 15%;
+  height: 15px;
+}
+img {
+  width: 100%;
+}
+p {
+  font-family: serif;
+  align-items: center;
+  /* display: flex; */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 3px;
+  font-kerning: 15;
+  font-weight: lighter;
+}
 #episode-list {
   width: 100%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-items: center;
 }
 .episode {
   width: 18%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   border-radius: 18px;
-
+  align-items: center;
   box-shadow: 3px 3px 10px rgb(92, 79, 70);
   border: 5px rgb(54, 3, 61);
   padding: 5px;

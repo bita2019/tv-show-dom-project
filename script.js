@@ -1,24 +1,43 @@
-//You can edit ALL of the code here
-// function setup() {
-//   const allEpisodes = getAllEpisodes();
-//   makePageForEpisodes(allEpisodes);
-// }
-
-// function makePageForEpisodes(episodeList) {
-//   const rootElem = document.getElementById("root");
-//   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
-// }
-
-// window.onload = setup;
-////////////////
-
-//////////////////
 const searchBox = document.getElementById("search-box");
 const searchCount = document.getElementById("search-count");
-let allEpisodes;
+const showSelect = document.getElementById("select-show");
+const selectMenu = document.getElementById("select-input");
+const allShowsContainer = document.getElementById("all-shows");
+const episodesSelect = document.getElementById("select-episode");
+showSelect.addEventListener("change", getLiveEpisodes("", showSelect.value));
+episodesSelect.addEventListener(
+  "change",
+  getLiveEpisodes("", episodesSelect.value)
+);
+console.log(allShowsContainer);
+
+let allEpisodes = [];
+const allShows = getAllShows().sort((a, b) =>
+  a.name.toLowerCase() > b.name.toLowerCase()
+    ? 1
+    : b.name.toLowerCase() > a.name.toLowerCase()
+    ? -1
+    : 0
+);
+function showsSelectMenue() {
+  allShows.map((show) => {
+    const showOption = document.createElement("option");
+    showOption.innerText = show.name;
+    showOption.value = show.id;
+    showSelect.appendChild(showOption);
+  });
+}
+function episodesSelectMenue() {
+  allEpisodes.map((show) => {
+    const episodesOption = document.createElement("option");
+    episodesOption.innerText = show.name;
+    episodesOption.value = show.id;
+    showSelect.appendChild(episodesOption);
+  });
+}
 //You can edit ALL of the code here
-function getLiveEpisodes(searchValue = "") {
-  var newVar = fetch("https://api.tvmaze.com/shows/82/episodes")
+function getLiveEpisodes(searchValue = "", showID = showSelect.value) {
+  let newVar = fetch(`https://api.tvmaze.com/shows/${showID}/episodes`)
     .then((response) => response.json())
     .then((data) => {
       console.log("This is data", data);
@@ -44,6 +63,8 @@ function getLiveEpisodes(searchValue = "") {
 function setup() {
   getLiveEpisodes();
   searchBox.addEventListener("keyup", onSearchKeyUp);
+  showsSelectMenue();
+  showSelect.addEventListener("click", getLiveEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
@@ -69,7 +90,12 @@ function makePageForEpisodes(episodeList) {
     )}`;
 
     summary.innerHTML = e.summary;
-    episodeImage.src = e.image.medium;
+    try {
+      episodeImage.src = e.image.medium;
+    } catch {
+      episodeImage.src =
+        "https://thumbs.dreamstime.com/z/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg";
+    }
     episode.className = "episode";
 
     episode.appendChild(heading);
@@ -78,6 +104,24 @@ function makePageForEpisodes(episodeList) {
     episodeContainer.appendChild(episode);
   });
 }
+
+// function makeSelectMenuForEpisodes(episodeList) {
+//   const showAll = document.createElement("option");
+//   showAll.innerText = "Show all episodes";
+//   showAll.value = "SHOW_ALL";
+//   selectMenu.appendChild(showAll);
+
+//   episodeList.forEach((episode) => {
+//     const listOption = document.createElement("option");
+//     const episodeString = `${formatSeriesAndEpisode(
+//       episode.season,
+//       episode.number
+//     )} - ${episode.name}`;
+//     listOption.innerText = episodeString;
+//     listOption.value = episode.id;
+//     selectMenu.appendChild(listOption);
+//   });
+// }
 
 function onSearchKeyUp(event) {
   getLiveEpisodes(event.target.value);
