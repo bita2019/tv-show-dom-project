@@ -25,7 +25,7 @@ function showsSelectMenue() {
     showSelect.appendChild(showOption);
   });
 }
-function episodesSelectMenue(episodeList) {
+function episodesSelectMenu(episodeList) {
   console.log(
     episodeList.forEach((episode) => {
       const episodeString = `${formatSeriesAndEpisodee(
