@@ -155,9 +155,7 @@ const searchBox = document.getElementById("search-box");
 const showSelect = document.getElementById("select-show");
 const episodesSelect = document.getElementById("select-episode");
 
-showSelect.addEventListener("change", () =>
-  getLiveEpisodes("", showSelect.value)
-);
+showSelect.addEventListener("change", () => getLiveEpisodes());
 episodesSelect.addEventListener("change", console.log("A"));
 
 const allShows = getAllShows().sort((a, b) =>
@@ -206,14 +204,16 @@ let ALL_EPS = [];
 
 //You can edit ALL of the code here
 let showID;
-const getLiveEpisodes = (searchValue = "", showID = 22) => {
+const getLiveEpisodes = () => {
+  searchValue = searchBox.value;
+  showID = showSelect.value;
   fetch(`https://api.tvmaze.com/shows/${showID}/episodes`)
     .then((response) => response.json())
     .then((data) => {
       console.log("This is data", data);
 
       ALL_EPS = data;
-
+      episodesSelect.innerHTML = "";
       ALL_EPS.map((ep) => {
         const epEle = document.createElement("option");
         epEle.innerText = ep.name;
