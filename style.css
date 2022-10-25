@@ -1,5 +1,5 @@
 #root {
-  color: rgb(34, 4, 4);
+  color: rgb(45, 13, 13);
   width: 100vw;
   height: 100vh;
   padding: 10px;
@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: flex-start;
   border-radius: 18px;
-  border: solid 1px navy;
+  border: solid 1px rgb(5, 5, 93);
   box-shadow: 10px 5px 10px rgb(83, 66, 54);
   border: 5px rgb(54, 3, 61);
   padding: 5px;
