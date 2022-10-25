@@ -21,7 +21,7 @@ function getLiveEpisodes() {
   var newVar = fetch("https://api.tvmaze.com/shows/82/episodes")
     .then((response) => response.json())
     .then((data) => {
-      console.log("This is data", data);
+      console.log("This is Data", data);
       // data.forEach((e) => {
       //   const episode = document.createElement("div");
       //   const heading = document.createElement("h3");
