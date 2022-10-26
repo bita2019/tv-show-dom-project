@@ -12,7 +12,6 @@
 // window.onload = setup;
 ////////////////
 
-//////////////////
 const searchBox = document.getElementById("search-box");
 const searchCount = document.getElementById("search-count");
 
