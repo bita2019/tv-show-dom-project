@@ -1,4 +1,3 @@
-//You can edit ALL of the code here
 // function setup() {
 //   const allEpisodes = getAllEpisodes();
 //   makePageForEpisodes(allEpisodes);
@@ -10,7 +9,6 @@
 // }
 
 // window.onload = setup;
-////////////////
 
 const searchBox = document.getElementById("search-box");
 const searchCount = document.getElementById("search-count");
