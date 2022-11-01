@@ -19,26 +19,26 @@ function getLiveEpisodes() {
     .then((response) => response.json())
     .then((data) => {
       console.log("This is Data", data);
-      // data.forEach((e) => {
-      //   const episode = document.createElement("div");
-      //   const heading = document.createElement("h3");
-      //   const episodeImage = document.createElement("img");
-      //   const summary = document.createElement("p");
+      data.forEach((e) => {
+        const episode = document.createElement("div");
+        const heading = document.createElement("h3");
+        const episodeImage = document.createElement("img");
+        const summary = document.createElement("p");
 
-      //   heading.innerText = `${e.name} - ${formatSeriesAndEpisode(
-      //     e.season,
-      //     e.number
-      //   )}`;
+        heading.innerText = `${e.name} - ${formatSeriesAndEpisode(
+          e.season,
+          e.number
+        )}`;
 
-      //   summary.innerHTML = e.summary;
-      //   episodeImage.src = e.image.medium;
-      //   episode.className = "episode";
+        summary.innerHTML = e.summary;
+        episodeImage.src = e.image.medium;
+        episode.className = "episode";
 
-      //   episode.appendChild(heading);
-      //   episode.appendChild(episodeImage);
-      //   episode.appendChild(summary);
-      //   episodeContainer.appendChild(episode);
-      // });
+        episode.appendChild(heading);
+        episode.appendChild(episodeImage);
+        episode.appendChild(summary);
+        episodeContainer.appendChild(episode);
+      });
     });
 }
 
