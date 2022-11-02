@@ -8,8 +8,6 @@
 //   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
 // }
 
-// window.onload = setup;
-
 const searchBox = document.getElementById("search-box");
 const searchCount = document.getElementById("search-count");
 
@@ -110,3 +108,4 @@ function onSearchKeyUp(event) {
 }
 
 window.onload = setup;
+// window.onload = setup;
